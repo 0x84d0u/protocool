@@ -5,7 +5,8 @@ export {
   AuthorizationError as Authorization,
   ConflictError as Conflict,
   NotFoundError as NotFound,
-  ValidationError as Validation
+  ValidationError as Validation,
+  InternalError as Internal
 } from './classes'
 
 export {

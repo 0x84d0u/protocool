@@ -58,3 +58,10 @@ export class ConflictError extends AbstractError {
     this.name = 'ConflictError';
   }
 }
+
+export class InternalError extends AbstractError {
+  constructor(message: string = 'Internal Error', details?: unknown) {
+    super(message, 'INTERNAL', 500, details);
+    this.name = 'InternalError';
+  }
+}
