@@ -1,3 +1,5 @@
+import { Respond } from "..";
+
 export class AbstractError extends Error {
   constructor(
     message: string,
@@ -10,6 +12,15 @@ export class AbstractError extends Error {
     if (typeof (Error as any).captureStackTrace === 'function') {
       (Error as any).captureStackTrace(this, this.constructor);
     }
+  }
+
+
+  toResponse(): Respond.Ko {
+    return Respond.ko(
+      this.code,
+      this.message,
+      this.details || undefined
+    ) 
   }
 }
 
