@@ -25,7 +25,7 @@ export class App {
 
   constructor(config: Partial<Config> = {}) {
     this.level = config.level ?? Level.INFO;
-    this.prefix = config.prefix ?? "[Protocool]";
+    this.prefix = config.prefix ?? "Protocool";
     this.enabled = config.enabled ?? true;
     this.timestamps = config.timestamps ?? true;
     this.color = config.color ?? true;
@@ -59,7 +59,8 @@ export class App {
       : "";
     // const timestamp = this.timestamps ? `${new Date().toISOString()} ` : "";
     const metaStr = meta ? ` ${JSON.stringify(meta, null, 2)}` : "";
-    return `[${level}] ${this.prefix} ${timestamp} \n${message}${metaStr}\n`;
+    // return `[${level}] ${this.prefix} ${timestamp} \n${message}${metaStr}\n`;
+    return `[${this.prefix}] ${timestamp}\t${message}${metaStr && '\t' + metaStr}`;
   }
 
   private log(level: Level, method: 'debug' | 'info' | 'warn' | 'error', message: string, meta?: unknown): void {
